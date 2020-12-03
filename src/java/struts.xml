@@ -1,0 +1,136 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+                
+        <action name="InsertSceneAction" class="khoilda.actions.InsertSceneAction">
+            <result name="success">managescene.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">insertscene.jsp</result>
+            <exception-mapping exception="java.sql.SQLException" result="input">
+            </exception-mapping>
+        </action>
+        
+        <action name="DeleteSceneAction" class="khoilda.actions.DeleteSceneAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchSceneAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="SearchSceneAction" class="khoilda.actions.SearchSceneAction">
+            <result name="success">managescene.jsp</result>
+        </action>
+        
+        <action name="EditSceneAction" class="khoilda.actions.EditSceneAction">
+            <result name="success">updatescene.jsp</result>
+        </action>
+        
+        <action name="LoginAction" class="khoilda.actions.LoginAction">
+            <result name="admin">admin.jsp</result>
+            <result name="actor">actor.jsp</result>
+            <result name="director">director.jsp</result>
+            <result name="input">index.jsp</result>
+            <result name="error">error.jsp</result>
+            <exception-mapping exception="java.lang.String" result="input"/>
+        </action>
+        <action name="LogoutAction" class="khoilda.actions.LogoutAction">
+            <result name="success" type="redirect">index.jsp</result>
+        </action>
+        <action name="InsertUserAction" class="khoilda.actions.InsertUserAction">
+            <result name="success">manageuser.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">insertuser.jsp</result>
+            <exception-mapping exception="java.sql.SQLException" result="input">
+            </exception-mapping>
+        </action>
+        
+        <action name="MoveToAccountAction" class="khoilda.actions.MoveToAccountAction">
+            <result name="success">manageuser.jsp</result>
+        </action>
+        
+        <action name="MoveToSceneAction" class="khoilda.actions.MoveToSceneAction">
+            <result name="success">managescene.jsp</result>
+        </action>
+        
+        <action name="MoveToToolAction" class="khoilda.actions.MoveToToolAction">
+            <result name="success">managetool.jsp</result>
+        </action>
+        
+        <action name="SearchUserAction" class="khoilda.actions.SearchUserAction">
+            <result name="success">manageuser.jsp</result>
+        </action>
+        
+        <action name="EditUserAction" class="khoilda.actions.EditUserAction">
+            <result name="success">updateuser.jsp</result>
+        </action>
+        
+        <action name="UpdateUserAction" class="khoilda.actions.UpdateUserAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchUserAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+            <result name="input">updateuser.jsp</result>
+        </action>
+        
+        <action name="DeleteUserAction" class="khoilda.actions.DeleteUserAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchUserAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+         
+               
+        <action name="SearchToolAction" class="khoilda.actions.SearchToolAction">
+            <result name="success">managetool.jsp</result>
+        </action>  
+        
+        <action name="InsertToolAction" class="khoilda.actions.InsertToolAction">
+            <result name="success">managetool.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="input">inserttool.jsp</result>
+            <exception-mapping exception="java.sql.SQLException" result="input">
+            </exception-mapping>           
+        </action>
+        
+        <action name="DeleteToolAction" class="khoilda.actions.DeleteToolAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchToolAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp></result>
+        </action>
+        
+        <action name="EditToolAction" class="khoilda.actions.EditToolAction">
+            <result name="success">updatetool.jsp</result>
+        </action>
+        
+        <action name="UpdateToolAction" class="khoilda.actions.UpdateToolAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchToolAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp></result>
+            <result name="input">updatetool.jsp</result>            
+        </action>
+        
+        <action name="UpdateSceneAction" class="khoilda.actions.UpdateSceneAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchSceneAction</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="error">error.jsp></result>
+            <result name="input">updatescene.jsp</result>            
+        </action>
+        <action name="MoveToAdminAction" class="khoilda.actions.MoveToAdminAction">
+            <result name="success">admin.jsp</result>
+        </action>
+                                                                                                                                                                                                                                                                                                                                                               
+    </package>
+</struts>
